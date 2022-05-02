@@ -1,6 +1,7 @@
-PUT http://localhost:5000/api/products/626fe6116869f7552f50cdc9
+PUT http://localhost:5000/api/products/626ff46000dfe535bef59d68
 Content-Type: application/json
 
 {
-  "price": 3500
+  "price": 1750,
+  "quantity" : 345
 }

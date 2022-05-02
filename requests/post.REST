@@ -5,7 +5,7 @@ Content-Type: application/json
     "name": "TOURING BIKES",
   "image": "https://ibb.co/kGfRrqg",
   "desc": "Touring bikes are like road bikes that have been specially adapted to carry loads over longer distances. They’re designed for long days out where stability, practicality and rider comfort are as important as performance, and they take pannier racks, mudguards and slightly wider tyres.",
-  "price": 2000,
-  "quantity": 175,
+  "price": 1500,
+  "quantity": 2055,
   "supplier": "City Bike DEU"
 }

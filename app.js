@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-const productsSample = [
+let productsSample = [
   {
     id: 1,
     name: "Cycle",
@@ -33,6 +33,30 @@ app.get("/api/products", (req, res) => {
 app.get("/api/products/:id", (req, res) => {
   const id = Number(req.params.id);
   const product = productsSample.find((product) => product.id === id);
+  res.json(product);
+});
+
+app.delete("/api/products/:id", (req, res) => {
+  const id = Number(req.params.id);
+  filteredProducts = productsSample.filter((product) => product.id !== id);
+
+  res.status(204).end();
+});
+
+app.post("/api/products", (req, res) => {
+  const body = req.body;
+  if (!body.name) {
+    return res.status(400).json({
+      error: "Content Missing",
+    });
+  }
+  const product = {
+    id: Math.round(Math.random() * 20),
+    name: body.name,
+    price: body.price,
+  };
+
+  productsSample = productsSample.concat(product);
   res.json(product);
 });
 

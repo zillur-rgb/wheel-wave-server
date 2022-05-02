@@ -1,63 +1,83 @@
 require("dotenv").config();
 const express = require("express");
+const ProductsDB = require("./model/products");
 const app = express();
 
 app.use(express.json());
 
-let productsSample = [
-  {
-    id: 1,
-    name: "Cycle",
-    Price: 235,
-  },
-  {
-    id: 2,
-    name: "Bike",
-    price: 400,
-  },
-  {
-    id: 3,
-    name: "Rickshaw",
-    price: 230,
-  },
-];
+// let productsSample = [
+//   {
+//     id: 1,
+//     name: "Cycle",
+//     Price: 235,
+//   },
+//   {
+//     id: 2,
+//     name: "Bike",
+//     price: 400,
+//   },
+//   {
+//     id: 3,
+//     name: "Rickshaw",
+//     price: 230,
+//   },
+// ];
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello World</h1>");
 });
 
 app.get("/api/products", (req, res) => {
-  res.json(productsSample);
+  ProductsDB.find({}).then((products) => res.json(products));
 });
 
 app.get("/api/products/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const product = productsSample.find((product) => product.id === id);
-  res.json(product);
+  ProductsDB.findById(req.params.id).then((product) => res.json(product));
 });
 
 app.delete("/api/products/:id", (req, res) => {
-  const id = Number(req.params.id);
-  filteredProducts = productsSample.filter((product) => product.id !== id);
-
-  res.status(204).end();
+  ProductsDB.findByIdAndRemove(req.params.id)
+    .then((result) => res.status(204).end())
+    .catch((error) => console.log(error.message));
 });
 
 app.post("/api/products", (req, res) => {
   const body = req.body;
-  if (!body.name) {
+  if (!body) {
     return res.status(400).json({
       error: "Content Missing",
     });
   }
-  const product = {
-    id: Math.round(Math.random() * 20),
-    name: body.name,
-    price: body.price,
-  };
 
-  productsSample = productsSample.concat(product);
-  res.json(product);
+  const newProduct = new ProductsDB({
+    name: body.name,
+    image: body.image,
+    desc: body.desc,
+    price: body.price,
+    quantity: body.quantity,
+    supplier: body.supplier,
+  });
+
+  newProduct.save().then((savedProduct) => {
+    res.json(savedProduct);
+  });
+});
+
+app.put("/api/products/:id", (req, res) => {
+  const body = req.body;
+  const updatedProduct = {
+    name: body.name,
+    image: body.image,
+    desc: body.desc,
+    price: body.price,
+    quantity: body.quantity,
+    supplier: body.supplier,
+  };
+  ProductsDB.findByIdAndUpdate(req.params.id, updatedProduct, { new: true })
+    .then((updatedProduct) => {
+      res.json(updatedProduct);
+    })
+    .catch((error) => console.log(error.message));
 });
 
 const PORT = process.env.PORT || 5000;

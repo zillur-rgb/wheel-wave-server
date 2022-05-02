@@ -1,9 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const ProductsDB = require("./model/products");
+const cors = require("cors");
 const productsRouter = require("./controllers/productsRouter");
-
+app.use(cors());
 app.use(express.json());
 app.use("/api/products", productsRouter);
 

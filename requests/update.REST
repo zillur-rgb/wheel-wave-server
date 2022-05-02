@@ -2,6 +2,5 @@ PUT http://localhost:5000/api/products/626ff46000dfe535bef59d68
 Content-Type: application/json
 
 {
-  "price": 1750,
-  "quantity" : 345
+  "image" : "https://i.ibb.co/GdLK1Cv/touring-bike.jpg"
 }

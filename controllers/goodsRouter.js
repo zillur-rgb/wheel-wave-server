@@ -1,3 +1,5 @@
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 const goodsRouter = require("express").Router();
 const GoodsDB = require("../model/goods");
 
@@ -36,6 +38,16 @@ goodsRouter.post("/api/goods", (req, res) => {
   newGood.save().then((savedGood) => {
     res.json(savedGood);
   });
+});
+
+// Login with jwt
+goodsRouter.post("/api/login", async (req, res) => {
+  const user = req.body;
+  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: "1d",
+  });
+
+  res.send({ accessToken });
 });
 
 // Updating data

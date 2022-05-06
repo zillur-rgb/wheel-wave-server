@@ -1,1 +1,1 @@
-DELETE http://localhost:5000/api/goods/6274910c8fe414a03343cea4
+DELETE http://localhost:5000/api/blogs/627577b4902770a750d5cf4a

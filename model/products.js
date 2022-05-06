@@ -10,6 +10,8 @@ mongoose
   .catch("Error connecting to MongoDB");
 
 const productSchema = new mongoose.Schema({
+  userEmail: String,
+  sold: Number,
   name: String,
   image: String,
   desc: String,

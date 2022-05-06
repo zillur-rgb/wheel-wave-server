@@ -28,6 +28,7 @@ productsRouter.post("/", (req, res) => {
   }
 
   const newProduct = new ProductsDB({
+    userEmail: body.email,
     name: body.name,
     image: body.image,
     desc: body.desc,
@@ -45,6 +46,8 @@ productsRouter.post("/", (req, res) => {
 productsRouter.put("/:id", (req, res) => {
   const body = req.body;
   const updatedProduct = {
+    userEmail: body.email,
+    sold: body.sold,
     name: body.name,
     image: body.image,
     desc: body.desc,

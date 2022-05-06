@@ -1,6 +1,6 @@
-PUT http://localhost:5000/api/products/626ff46000dfe535bef59d68
+PUT http://localhost:5000/api/goods/6274915289f5ae221f27df70
 Content-Type: application/json
 
 {
-  "image" : "https://i.ibb.co/GdLK1Cv/touring-bike.jpg"
+  "uEmail":"raufuddi@mailman.com"
 }

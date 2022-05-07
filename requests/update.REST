@@ -1,6 +1,6 @@
-PUT http://localhost:5000/api/blogs/62756b19444acb2d71455ef6
+PUT http://localhost:5000/api/goods/62749ab235b99564a743dc5a
 Content-Type: application/json
 
 {
-  "image":"https://i.ibb.co/wg3xynS/mongo-Node.png"
+  "uEmail":"solo@gmail.com"
 }

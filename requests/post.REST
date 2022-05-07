@@ -17,8 +17,7 @@ POST http://localhost:5000/api/blogs
 Content-Type: application/json
 
 {
-  "title": "When should one use nodejs and when should one use mongodb?",
-  "image": "https://i.ibb.co/6Y0JHfK/jsvsnode.png",
-  "desc" : "NodeJs is great for making real time applications such as online games or chatrooms anything where what one user does with the application needs to be seen by other users immediately, without a page refresh. Besides, we can use the same language JavaScript for the server and client both side even can share same codesif needed. From my personal perspective I would like to use MongoDB for it's lower complexity. I prefer document databases because of how they organize data as well as they support query languages. MongoDB is usually categorized under NoSQL Database. NoSQL database means usually the data model will be organized in a document other than tabular form.",
-  "author" : "Zillur Rahman"
+  "title": "Difference Between JavaScript and Node.Js",
+  "desc" : "JavaScript is one of the most popular scripting languages that are supported by most browser and mostly used in client side. On the other hand Node Js is a JavaScript interpreter with some valuable libraries that are used to run JavaScript on the server side. NodeJs is not only written in JavaScript but also it uses C/C++.",
+  "author" : "Mr Unga Bunga"
 }

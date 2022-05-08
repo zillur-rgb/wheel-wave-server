@@ -39,7 +39,7 @@ The task was to create a Fullstack Warehouse Inventory Management app.
 
 ### Links
 
-- Github Link: [https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-zillur-rgb](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-zillur-rgb)
+- Github Link: [https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-zillur-rgb](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-zillur-rgb)
 - Live URL: [https://wheel-wave.web.app/](https://wheel-wave.web.app/)
 
 ### Built with
